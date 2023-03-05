@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OrderReceivingApp.CustomValidators;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrderReceivingApp.Models
 {
@@ -13,7 +14,7 @@ namespace OrderReceivingApp.Models
         [Range(0, Double.MaxValue, ErrorMessage = "'{0}' must be a positive number.")]
         public double InvoicePrice { get; set; }
 
-        [Required(ErrorMessage = "'{0}' must be supplied.")]
+        [ProductsListValidator]
         public List<Product> Products { get; set; } = new List<Product>();
     }
 }
